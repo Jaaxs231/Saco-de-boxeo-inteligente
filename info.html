@@ -8,114 +8,140 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
   body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 20px;
-    background: linear-gradient(135deg, #47126b, #b5179e);
-    color: #fff;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: linear-gradient(135deg, #0A0F24, #1E2A78); /* Fondo oscuro azul */
+  color: #EAEAEA; /* Texto principal */
+}
 
-  h2 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-  }
+h2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  color: #08D9D6; /* Color turquesa para títulos */
+}
 
-  p {
-    max-width: 700px;
-    line-height: 1.6;
-    margin: 0 auto 20px;
-  }
+p {
+  max-width: 700px;
+  line-height: 1.6;
+  margin: 0 auto 20px;
+  color: #EAEAEA;
+}
 
-  /* Botón Volver */
-  .btn-container {
-    display: flex;
-    justify-content: flex-start;
-    margin-bottom: 20px;
-  }
-  .btn {
-    padding: 12px 25px;
-    background: #b43e8f;
-    color: #fff;
-    font-size: 1.2rem;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: transform 0.3s, background 0.3s;
-  }
-  .btn:hover { background: #ff6f61; }
+/* =========================
+   Botón Volver
+========================= */
+.btn-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+.btn {
+  padding: 12px 25px;
+  background: #0d1b2a; /* Rosa fuerte */
+  color: #ffffff;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s, background 0.3s;
+}
+.btn:hover {
+  background: #F5B700; /* Amarillo para hover */
+  color: #0A0F24; /* Texto oscuro al hacer hover */
+}
 
-  /* Botones superiores e inferiores */
-  .top-stats, .bottom-stats {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: flex-start;
-    margin-bottom: 30px;
-  }
+/* =========================
+   Botones superiores e inferiores
+========================= */
+.top-stats, .bottom-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: flex-start;
+  margin-bottom: 30px;
+}
 
-  .card, .box {
-    padding: 20px;
-    min-width: 160px;
-    text-align: center;
-    border-radius: 10px;
-    background: #3d0066;
-    color: #fff;
-    font-weight: bold;
-    transition: transform 0.3s;
-    opacity: 0;
-    transform: translateY(20px);
-  }
+.card, .box {
+  padding: 20px;
+  min-width: 160px;
+  text-align: center;
+  border-radius: 10px;
+  background: #0d1b2a;
+  color: #fff;
+  font-weight: bold;
+  transition: transform 0.3s;
+  opacity: 0;
+  transform: translateY(20px);
+}
 
-  .card:hover, .box:hover { transform: scale(1.05); }
+.card:hover, .box:hover {
+  transform: scale(1.05);
+  background: #F5B700;
+  color: #0A0F24;
+}
 
-  .card.visible, .box.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.card.visible, .box.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 
-  .card img, .box img {
-    width: 60px;
-    height: 60px;
-    margin-bottom: 10px;
-    animation: bounce 1s infinite alternate;
-  }
+.card img, .box img {
+  width: 60px;
+  height: 60px;
+  margin-bottom: 10px;
+  animation: bounce 1s infinite alternate;
+}
 
-  @keyframes bounce {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-10px); }
-  }
+@keyframes bounce {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(-10px); }
+}
 
-  .counter {
-    font-size: 1.3em;
-    font-weight: bold;
-    color: #ff4b2b;
-  }
+/* =========================
+   Contadores
+========================= */
+.counter {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #FF4B2B;
+}
 
-  section {
-    margin-bottom: 40px;
-    padding: 20px;
-    background: rgba(0,0,0,0.3);
-    border-radius: 12px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-  }
+/* =========================
+   Secciones
+========================= */
+section {
+  margin-bottom: 40px;
+  padding: 20px;
+  background: rgba(255,255,255,0.05); /* Fondo semi-transparente */
+  border-radius: 12px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #EAEAEA;
+}
 
-  img {
-    display: block;
-    margin: 0 auto 15px;
-  }
+img {
+  display: block;
+  margin: 0 auto 15px;
+}
 
-  .chart-section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px;
-    background: white;
-    color: black;
-    border-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-  }
+/* =========================
+   Gráfica
+========================= */
+.chart-section {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 30px;
+  background: #0A0F24;
+  color: #08D9D6;
+  border-radius: 20px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
 
-  .consejos-container {
+/* =========================
+   Consejos
+========================= */
+.consejos-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -124,7 +150,7 @@
 }
 
 .consejo {
-  background: rgba(255,255,255,0.1);
+  background: rgba(8, 217, 214, 0.1); /* Turquesa suave */
   padding: 20px;
   border-radius: 15px;
   width: 250px;
@@ -151,7 +177,57 @@
   line-height: 1.4;
 }
 
-/* Animación flotante para los iconos */
+/* =========================
+   Frase motivacional
+========================= */
+#motivacion {
+  text-align: center;
+  margin: 60px auto;
+  padding: 30px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 15px;
+  max-width: 700px;
+}
+
+#motivacion .frase {
+  font-size: 1.6rem;
+  font-style: italic;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* =========================
+   Barras de progreso
+========================= */
+.progress-container {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 20px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.progress {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, #FF2E63, #F5B700);
+  border-radius: 10px;
+  transition: width 2s ease;
+}
+
+/* =========================
+   Animaciones
+========================= */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
 @keyframes float {
   0%, 100% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -165,18 +241,12 @@
   <a href="index.html" class="btn">Volver</a>
 </div>
 
-<!-- Botones superiores -->
-<div class="top-stats">
-  <a href="#fuerza" class="card" data-value="85">Fuerza</a>
-  <a href="#golpes" class="card" data-value="60">N° Golpes</a>
-  <a href="#humedad" class="card" data-value="50">Humedad</a>
-  <a href="#temperatura" class="card" data-value="25">Temperatura</a>
-</div>
+
 
 <!-- Botones inferiores -->
 <div class="bottom-stats">
-  <a href="#rendimiento" class="box">Gráfica de Rendimiento</a>
-  <a href="#consejos" class="box">Consejos de Entrenamiento</a>
+  <b href="#rendimiento" class="box">Gráfica de Rendimiento</b>
+  <b href="#consejos" class="box">Consejos de Entrenamiento</b>
 </div>
 
 <!-- Secciones -->
@@ -207,13 +277,26 @@
 <section id="rendimiento" class="chart-section">
   <h2>Gráfica de Rendimiento</h2>
   <canvas id="performanceChart" width="800" height="400"></canvas>
-  <p><b>Esta grafica muestra la evolucion del rendimiento a lo largo de las sesiones de entrenamiento durante 5 dias.</b></p>
-</section>
+</section> 
 
-<section id="consejos">
-  <img src="imagenes/foco.png" alt="Descripcion" width="80" height="80">
-  <h2>Consejos de Entrenamiento</h2>
-  <p>Mantén la técnica correcta, hidrátate, calienta y descansa adecuadamente para evitar lesiones.</p>
+<section id="progreso">
+  <h2>Progreso del Entrenamiento</h2>
+  <div class="progress-container">
+    <p>Calorías quemadas</p>
+    <div class="progress-bar">
+      <div class="progress" data-value="75"></div>
+    </div>
+
+    <p>Golpes realizados</p>
+    <div class="progress-bar">
+      <div class="progress" data-value="60"></div>
+    </div>
+
+    <p>Resistencia</p>
+    <div class="progress-bar">
+      <div class="progress" data-value="85"></div>
+    </div>
+  </div>
 </section>
 
 <section id="consejos">
@@ -240,6 +323,10 @@
       <p><strong>Trabaja pies y movilidad:</strong> Desplázate mientras golpeas para fortalecer piernas y mejorar coordinación.</p>
     </div>
   </div>
+</section> 
+
+<section id="motivacion">
+<h2 class="frase">"La disciplina vence al talento cuando el talento no se disciplina"</h2>
 </section>
 
 <script>
@@ -250,51 +337,92 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => card.classList.add('visible'), index * 150);
   });
 
-  // Chart.js
   const ctx = document.getElementById('performanceChart').getContext('2d');
-  const performanceChart = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: ['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes'],
-      datasets: [
-        {
-          label: 'Fuerza promedio',
-          data: [80, 85, 90, 87, 92],
-          borderColor: 'rgba(255, 75, 43, 1)',
-          backgroundColor: 'rgba(255, 75, 43, 0.2)',
-          fill: true,
-          tension: 0.4
-        },
-        {
-          label: 'Número de golpes fuertes',
-          data: [50, 55, 60, 58, 65],
-          borderColor: 'rgba(75, 192, 192, 1)',
-          backgroundColor: 'rgba(75, 192, 192, 0.2)',
-          fill: true,
-          tension: 0.4
-        }
-      ]
-    },
-    options: {
-      responsive: true,
-      plugins: {
-        legend: { position: 'top' },
-        title: { display: true, text: 'Rendimiento semanal del entrenamiento' }
+
+const performanceChart = new Chart(ctx, {
+  type: 'line',
+  data: {
+    labels: ["Sesión 1", "Sesión 2", "Sesión 3", "Sesión 4", "Sesión 5", "Sesión 6"],
+    datasets: [
+      {
+        label: "Golpes por sesión",
+        data: [220, 250, 280, 300, 340, 370], // ejemplo realista
+        borderColor: "rgba(255, 99, 132, 1)",
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        tension: 0.3,
+        yAxisID: 'y',
       },
-      scales: { y: { beginAtZero: true } }
+      {
+        label: "Calorías quemadas",
+        data: [320, 350, 370, 400, 420, 450], // kcal estimadas
+        borderColor: "rgba(54, 162, 235, 1)",
+        backgroundColor: "rgba(54, 162, 235, 0.2)",
+        tension: 0.3,
+        yAxisID: 'y1',
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    interaction: {
+      mode: 'index',
+      intersect: false,
+    },
+    stacked: false,
+    plugins: {
+      title: {
+        display: true,
+        text: 'Progreso en Golpes y Calorías por Sesión (principiante)'
+      }
+    },
+    scales: {
+      y: {
+        type: 'linear',
+        display: true,
+        position: 'left',
+        title: {
+          display: true,
+          text: 'Golpes'
+        }
+      },
+      y1: {
+        type: 'linear',
+        display: true,
+        position: 'right',
+        grid: {
+          drawOnChartArea: false,
+        },
+        title: {
+          display: true,
+          text: 'Calorías (kcal)'
+        }
+      }
     }
-  });
+  }
 });
-</script>
-<script>
+
   // Animación de entrada de consejos
-window.addEventListener("scroll", () => {
   const consejos = document.querySelectorAll(".consejo");
-  consejos.forEach((consejo) => {
-    const position = consejo.getBoundingClientRect().top;
-    if (position < window.innerHeight - 100) {
-      consejo.classList.add("visible");
-    }
+  const revealConsejos = () => {
+    consejos.forEach((consejo) => {
+      const position = consejo.getBoundingClientRect().top;
+      if (position < window.innerHeight - 100) {
+        consejo.classList.add("visible");
+      }
+    });
+  };
+  window.addEventListener("scroll", revealConsejos);
+  revealConsejos(); // Ejecutar al cargar
+});  
+
+// Animación de barras de progreso
+document.addEventListener("DOMContentLoaded", () => {
+  const progresses = document.querySelectorAll(".progress");
+  progresses.forEach(bar => {
+    const value = bar.getAttribute("data-value");
+    setTimeout(() => {
+      bar.style.width = value + "%";
+    }, 500);
   });
 });
 </script>

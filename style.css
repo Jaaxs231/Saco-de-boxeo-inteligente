@@ -91,6 +91,10 @@ body, html {
   color: #fff;
 }
 
+.btn {
+  margin: 20px;
+}
+
 /* =========================
    Iconos flotantes
 ========================= */
@@ -276,4 +280,23 @@ body, html {
     flex-direction: column;
     align-items: center;
   }
+}
+
+/* Reiniciar márgenes y padding para eliminar la línea */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+/* Canvas de partículas ocupar toda la pantalla sin línea extra */
+#particles-index {
+  display: block; /* Evita espacio extra por inline */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
 }

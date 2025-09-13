@@ -29,11 +29,9 @@ document.addEventListener("DOMContentLoaded", () => {
 const button = document.querySelector(".btn");
 if (button) {
   button.addEventListener("mouseenter", () => {
-    button.style.animation = "shake 0.3s";
+    button.style.animation = "shake 0.5s";
   });
-  button.addEventListener("animationend", () => {
-    button.style.animation = "";
-  });
+ 
 }
 
 // Efecto scroll para info.html
@@ -98,4 +96,3 @@ function typeWriter() {
   }
 }
 typeWriter();
-
